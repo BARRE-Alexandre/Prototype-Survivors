@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class FollowPlayer : MonoBehaviour
+public class Shooted : MonoBehaviour
 {
-    public GameObject player;
-    private Vector3 offset = new Vector3(0,10,0);
+
+    private float speed = 40.0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -11,8 +11,8 @@ public class FollowPlayer : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void Update()
     {
-        transform.position = player.transform.position + offset;
+        transform.position += speed * Time.deltaTime * transform.forward;
     }
 }
