@@ -8,9 +8,13 @@ public class WaveManager : MonoBehaviour
     public GameObject bossPrefab;
     private readonly float xBounds = 30.0f;
     private readonly float zBounds = 30.0f;
-    private float spawnRate = 2.0f;
-    private int waveNumber = 1;
+    private float spawnRate = 1.0f;
+    public int waveNumber = 1;
     private bool spawningWave = false;
+    public int EnemiesLeft
+    {
+        get; private set;
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,9 +25,9 @@ public class WaveManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int enemiesLeft = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        EnemiesLeft = GameObject.FindGameObjectsWithTag("Enemy").Length;
 
-        if (enemiesLeft == 0 && !spawningWave)
+        if (EnemiesLeft == 0 && !spawningWave)
         {
             waveNumber++;
             StartCoroutine(SpawnEnemyWave());
@@ -38,7 +42,7 @@ public class WaveManager : MonoBehaviour
             SpawnBoss();
         }
 
-        int enemiesToSpawn = 5*waveNumber;
+        int enemiesToSpawn = 3*waveNumber;
 
         for(int i = 0; i < enemiesToSpawn; i++)
         {

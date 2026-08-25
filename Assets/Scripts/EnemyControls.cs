@@ -28,12 +28,19 @@ public class EnemyControls : MonoBehaviour
 
     protected virtual void FollowPlayer()
     {
+        if (playerTransform == null)
+        {
+            return;
+        }
         transform.Translate(GetSpeed() * Time.deltaTime * (playerTransform.position - transform.position).normalized);
     }
 
     protected virtual void LookAtPlayer()
     {
-        
+        if (playerTransform == null)
+        {
+            return;
+        }
     }
 
     public void TakeDammage()

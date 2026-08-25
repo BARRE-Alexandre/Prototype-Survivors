@@ -4,17 +4,23 @@ public class PlayerController : MonoBehaviour
 {
     private InputSystem_Actions playerControls;
     private Rigidbody playerRb;
+    private GameUIHandler gameUIScript;
     public GameObject bulletPrefab;
     private float playerSpeed = 20.0f;
     private float jumpForce = 5.0f;
     private int rotation = 90;
-    private int playerHealth = 3;
+    public int playerHealth = 3;
     [SerializeField] private bool onGround = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         playerControls = new InputSystem_Actions();
         playerRb = gameObject.GetComponent<Rigidbody>();
+    }
+
+    void Start()
+    {
+        gameUIScript = GameObject.Find("Canvas").GetComponent<GameUIHandler>();
     }
 
     void OnEnable()
@@ -98,6 +104,7 @@ public class PlayerController : MonoBehaviour
         if (playerHealth == 0)
         {
             Destroy(gameObject);
+            gameUIScript.GameOver();
         }
     }
 
