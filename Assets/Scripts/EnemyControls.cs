@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class EnemyControls : MonoBehaviour
 {
+    private GameUIHandler gameUIHandler;
     protected Transform playerTransform;
     protected int currentHealth;
     protected virtual float GetSpeed()
@@ -12,9 +13,15 @@ public class EnemyControls : MonoBehaviour
     {
         return 1;
     }
+    public virtual int GetScore()
+    {
+        return 1;
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        gameUIHandler = GameObject.Find("Canvas").GetComponent<GameUIHandler>();
+
         playerTransform = GameObject.Find("Player").GetComponent<Transform>();
         currentHealth = GetHealth();
     }
@@ -32,6 +39,7 @@ public class EnemyControls : MonoBehaviour
         {
             return;
         }
+
         transform.Translate(GetSpeed() * Time.deltaTime * (playerTransform.position - transform.position).normalized);
     }
 
@@ -49,6 +57,7 @@ public class EnemyControls : MonoBehaviour
 
         if (currentHealth == 0)
         {
+            gameUIHandler.score += GetScore();
             Destroy(gameObject);
         }
     }

@@ -11,9 +11,18 @@ public class Tank : EnemyControls
     {
         return 3;
     }
+    public override int GetScore()
+    {
+        return 5;
+    }
 
     protected override void FollowPlayer()
     {
+        if (playerTransform == null)
+        {
+            return;
+        }
+
         transform.Translate(GetSpeed() * Time.deltaTime * (playerTransform.position - transform.position).normalized);
     }
 }

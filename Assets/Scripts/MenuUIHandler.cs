@@ -1,13 +1,17 @@
 using TMPro;
+using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MenuUIHandler : MonoBehaviour
 {
-    private TextMeshProUGUI scoreText;
+    public TextMeshProUGUI scoreText;
     // Update is called once per frame
     void Start()
     {
-        scoreText.SetText("Score");
+        if (MainManager.Instance != null)
+        {
+            scoreText.SetText("Best Score : " + MainManager.Instance.playerScore);
+        }   
     }
 
     public void StartGame()

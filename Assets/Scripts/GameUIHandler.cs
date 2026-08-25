@@ -11,8 +11,11 @@ public class GameUIHandler : MonoBehaviour
     public TextMeshProUGUI enemiesText;
     public TextMeshProUGUI gameOverText;
     public Button restartButton;
+    public Button exitButton;
     private WaveManager waveScript;
     private PlayerController playerScript;
+    public int score;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,19 +29,32 @@ public class GameUIHandler : MonoBehaviour
         wavesText.SetText("Waves : " + waveScript.waveNumber);
         enemiesText.SetText("Enemies Remaining : " + waveScript.EnemiesLeft);
         livesText.SetText("Lives : " + playerScript.playerHealth);
+        scoreText.SetText("Score : " + score);
+
+        if (MainManager.Instance.playerScore < score)
+        {
+            MainManager.Instance.playerScore = score;
+        }
     }
 
     public void GameOver()
     {
         gameOverText.gameObject.SetActive(true);
         restartButton.gameObject.SetActive(true);
-        Time.timeScale = 0f;
+        exitButton.gameObject.SetActive(true);
     }
 
     public void Restart()
     {
         gameOverText.gameObject.SetActive(false);
         restartButton.gameObject.SetActive(false);
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void Exit()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 }
