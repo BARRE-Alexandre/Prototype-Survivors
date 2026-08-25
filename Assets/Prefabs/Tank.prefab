@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6784616223527210044}
   - component: {fileID: 2759866330569911812}
   - component: {fileID: 7844676503790472322}
+  - component: {fileID: 8566859675272939729}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Enemy
@@ -127,3 +128,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db953f756e363244987085e7e88df40c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tank
+--- !u!114 &8566859675272939729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4516145452552715361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b10e7207e4515a4da8430c8f6360159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCollisions

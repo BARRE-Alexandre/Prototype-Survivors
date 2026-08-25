@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     private float playerSpeed = 20.0f;
     private float jumpForce = 5.0f;
     private int rotation = 90;
+    private int playerHealth = 3;
     [SerializeField] private bool onGround = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -24,11 +25,6 @@ public class PlayerController : MonoBehaviour
     void OnDisable()
     {
         playerControls.Disable();
-    }
-
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame
@@ -95,4 +91,14 @@ public class PlayerController : MonoBehaviour
             onGround = true;
         }
     }
+
+    public void TakeDammage()
+    {
+        playerHealth--;
+        if (playerHealth == 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }

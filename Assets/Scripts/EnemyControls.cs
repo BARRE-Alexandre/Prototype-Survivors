@@ -23,12 +23,17 @@ public class EnemyControls : MonoBehaviour
     void Update()
     {
         FollowPlayer();
+        LookAtPlayer();
     }
 
     protected virtual void FollowPlayer()
     {
-
         transform.Translate(GetSpeed() * Time.deltaTime * (playerTransform.position - transform.position).normalized);
+    }
+
+    protected virtual void LookAtPlayer()
+    {
+        
     }
 
     public void TakeDammage()
