@@ -15,7 +15,7 @@ public class DestroyOutOfBounds : MonoBehaviour
     {
         Destroy();
     }
-
+// ABSTRACTION
     private void Destroy()
     {
         if (transform.position.x < -xBounds || transform.position.x > xBounds)

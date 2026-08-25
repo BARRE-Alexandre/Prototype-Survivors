@@ -1,19 +1,23 @@
 using UnityEngine;
-
+// INHERITANCE
 public class Speedy : EnemyControls
 {
+    // ENCAPSULATION
     protected override float GetSpeed()
     {
         return 5.0f;
     }
+    // ENCAPSULATION
     protected override int GetHealth()
     {
         return base.GetHealth();
     }
+    // POLYMORPHISM
     public override int GetScore()
     {
         return 3;
     }
+    // POLYMORPHISM
     protected override void FollowPlayer()
     {
         if (playerTransform == null)

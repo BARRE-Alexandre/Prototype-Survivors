@@ -11,6 +11,7 @@ public class WaveManager : MonoBehaviour
     private float spawnRate = 1.0f;
     public int waveNumber = 1;
     private bool spawningWave = false;
+    // ENCAPSULATION
     public int EnemiesLeft
     {
         get; private set;
@@ -52,13 +53,14 @@ public class WaveManager : MonoBehaviour
     
         spawningWave = false;
     }
+    // ABSTRACTION
     private void SpawnManager()
     {
         int enemyIndex = Random.Range(0, enemiesList.Length);
         Vector3 randomSpawnPos = new Vector3(Random.Range(-xBounds, xBounds), 0.2f, Random.Range(-zBounds, zBounds));
         Instantiate(enemiesList[enemyIndex], randomSpawnPos, enemiesList[enemyIndex].transform.rotation);
     }
-
+// ABSTRACTION
     private void SpawnBoss()
     {
         Instantiate(bossPrefab, new Vector3(0,0.5f,0), bossPrefab.transform.rotation);

@@ -36,14 +36,14 @@ public class GameUIHandler : MonoBehaviour
             MainManager.Instance.playerScore = score;
         }
     }
-
+// ABSTRACTION
     public void GameOver()
     {
         gameOverText.gameObject.SetActive(true);
         restartButton.gameObject.SetActive(true);
         exitButton.gameObject.SetActive(true);
     }
-
+// ABSTRACTION
     public void Restart()
     {
         gameOverText.gameObject.SetActive(false);
@@ -51,7 +51,7 @@ public class GameUIHandler : MonoBehaviour
         
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-
+// ABSTRACTION
     public void Exit()
     {
         SceneManager.LoadScene(0);

@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
 
         Attack();
     }
-
+// ABSTRACTION
     private void Move()
     {
         Vector2 playerMove = playerControls.Player.Move.ReadValue<Vector2>();
@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
             transform.Rotate(Vector3.up);
         }
     }
-
+// ABSTRACTION
     private void PlayerRotation()
     {
         if (playerControls.Player.TurnLeft.triggered)
@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
             transform.Rotate(Vector3.up * rotation);
         }
     }
-
+// ABSTRACTION
     private void Attack()
     {
         if (playerControls.Player.Attack.triggered)
@@ -81,6 +81,7 @@ public class PlayerController : MonoBehaviour
             Instantiate(bulletPrefab, transform.position, transform.rotation);
         }
     }
+    // ABSTRACTION
     private void Jump()
     {
         if (playerControls.Player.Jump.triggered && onGround == true)
@@ -97,7 +98,7 @@ public class PlayerController : MonoBehaviour
             onGround = true;
         }
     }
-
+// ABSTRACTION
     public void TakeDammage()
     {
         playerHealth--;

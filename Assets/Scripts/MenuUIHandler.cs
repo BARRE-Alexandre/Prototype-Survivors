@@ -19,7 +19,7 @@ public class MenuUIHandler : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
-    
+    // ABSTRACTION
     public void Exit()
     {
         MainManager.Instance.SaveScore();

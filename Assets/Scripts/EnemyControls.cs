@@ -1,18 +1,22 @@
 using UnityEngine;
 
+// INHERITANCE
 public class EnemyControls : MonoBehaviour
 {
     private GameUIHandler gameUIHandler;
     protected Transform playerTransform;
     protected int currentHealth;
+    // ENCAPSULATION
     protected virtual float GetSpeed()
     {
         return 2.5f;
     }
+    // ENCAPSULATION
     protected virtual int GetHealth()
     {
         return 1;
     }
+    // ENCAPSULATION
     public virtual int GetScore()
     {
         return 1;
@@ -32,7 +36,7 @@ public class EnemyControls : MonoBehaviour
         FollowPlayer();
         LookAtPlayer();
     }
-
+// POLYMORPHISM
     protected virtual void FollowPlayer()
     {
         if (playerTransform == null)
@@ -44,7 +48,7 @@ public class EnemyControls : MonoBehaviour
 
         transform.Translate(GetSpeed() * Time.deltaTime * direction.normalized);
     }
-
+// POLYMORPHISM
     protected virtual void LookAtPlayer()
     {
         if (playerTransform == null)
@@ -52,7 +56,7 @@ public class EnemyControls : MonoBehaviour
             return;
         }
     }
-
+// POLYMORPHISM
     public void TakeDammage()
     {
         currentHealth--;

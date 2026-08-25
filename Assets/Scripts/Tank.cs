@@ -1,16 +1,17 @@
 using UnityEngine;
-
+// INHERITANCE
 public class Tank : EnemyControls
-{
+{// ENCAPSULATION
     protected override float GetSpeed()
     {
         return 1.0f;
     }
-
+// ENCAPSULATION
     protected override int GetHealth()
     {
         return 3;
     }
+    // ENCAPSULATION
     public override int GetScore()
     {
         return 5;

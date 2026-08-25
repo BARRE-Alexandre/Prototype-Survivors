@@ -1,5 +1,5 @@
 using UnityEngine;
-
+// INHERITANCE
 public class Boss : EnemyControls
 {
     public GameObject bulletPrefab;
