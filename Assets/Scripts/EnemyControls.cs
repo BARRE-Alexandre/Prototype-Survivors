@@ -39,8 +39,10 @@ public class EnemyControls : MonoBehaviour
         {
             return;
         }
+        Vector3 direction = playerTransform.position - transform.position;
+        direction.y = 0;
 
-        transform.Translate(GetSpeed() * Time.deltaTime * (playerTransform.position - transform.position).normalized);
+        transform.Translate(GetSpeed() * Time.deltaTime * direction.normalized);
     }
 
     protected virtual void LookAtPlayer()

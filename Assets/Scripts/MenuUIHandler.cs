@@ -11,7 +11,8 @@ public class MenuUIHandler : MonoBehaviour
         if (MainManager.Instance != null)
         {
             scoreText.SetText("Best Score : " + MainManager.Instance.playerScore);
-        }   
+        }
+
     }
 
     public void StartGame()
@@ -21,6 +22,8 @@ public class MenuUIHandler : MonoBehaviour
     
     public void Exit()
     {
+        MainManager.Instance.SaveScore();
+
         #if UNITY_EDITOR
             UnityEditor.EditorApplication.ExitPlaymode();
         #else

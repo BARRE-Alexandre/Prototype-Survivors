@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     private GameUIHandler gameUIScript;
     public GameObject bulletPrefab;
     private float playerSpeed = 20.0f;
-    private float jumpForce = 5.0f;
+    private float jumpForce = 6.0f;
     private int rotation = 90;
     public int playerHealth = 3;
     [SerializeField] private bool onGround = false;
